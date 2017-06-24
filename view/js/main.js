@@ -323,6 +323,9 @@
 				})
 				.append('<a class="close" href="#menu">Close</a>');
 
+
+
+
 			$body
 				.on('click', 'a[href="#menu"]', function(event) {
 
