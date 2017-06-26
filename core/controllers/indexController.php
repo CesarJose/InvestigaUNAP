@@ -1,3 +1,3 @@
 <?php
 
-include (VIEW_DIR . 'index/index.html');
+include (VIEW_DIR . 'index/index.php');

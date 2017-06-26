@@ -22,5 +22,8 @@ define('DB_NAME','investigaunap');
 define('APP_COPY', 'Copyright &copy; ' . date('Y', time()). ' César José Ruiz.');
 
 #Datos
-#require ('core/models/classConexion.php');
+require ('core/models/classConexion.php');
 #require ('core/bin/functions/encrypt.php');
+require ('core/bin/functions/Users.php');
+
+$users = Users();

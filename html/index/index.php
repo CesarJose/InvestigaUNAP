@@ -1,13 +1,9 @@
 <!DOCTYPE HTML>
-<!--
-	Forty by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
+<html lang="es">
 <head>
     <title>Investiga UNAP</title>
     <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <!--[if lte IE 8]>
     <script src="view/js/ie/html5shiv.js"></script><![endif]-->
@@ -28,30 +24,39 @@
     <!-- Note: The "styleN" class below should match that of the banner element. -->
     <header id="header" class="alt style2">
         <img class="imagenunap" src="view/images/logo-min.png">
-        <a href="index.html" class="logo"><strong>UNAP</strong> </a>
+        <a href="index.php" class="logo"><strong>UNAP</strong> </a>
         <nav>
-            <div><!--Formulario despegable login-->
+            <?php
+            if (!isset($_SESSION['app_id'])){
+                echo '<div><!--Formulario despegable login-->
             <button id="open-close" class="button-login">Iniciar Sesión</button>
-            <form id='login_inv' class="formulario">
+            <form id=\'login_inv\' class="formulario">
+                <div id="_AJAX_LOGIN">
+
+                </div>
                 <label>Usuario</label>
                 <input type="text" id="nombre" placeholder="Escriba su nombre">
                 <label>Contraseña</label>
                 <input type="password" id="contraseña" placeholder="Escriba su contraseña">
-                <div class="checkbox">
-                    <label><input type="checkbox" value="1" id="session_login" checked>Recordarme</label>
-                </div>
-                <center><input type='submit'  value="Ingresar" id="enviar"></center>
+                <div><label><input type="checkbox" class="prueba" value="1" id="recordar" checked>Recordar</label></div>
+                <center><input type=\'submit\'  value="Ingresar" id="enviar" onclick="goLogin()"></center>
             </form>
             </div>
-            <a href="#menu">Menu</a>
+            <a href="#menu">Menu</a>';
+            } else {
+                echo '<a href="#menu">Menu</a>';
+            }
+
+            ?>
+
         </nav>
     </header>
 
     <!-- Menu -->
     <nav id="menu">
         <ul class="links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="index.html">Material útil</a></li>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="index.php">Material útil</a></li>
             <li><a href="archivoprueba.html">Temas de investigación</a></li>
             <li><a href="archivoestandar.html">Publicaciones</a></li>
         </ul>
@@ -231,6 +236,8 @@
 </div>
 
 <!-- Scripts -->
+<script src="view/js/propios/general.js"></script>
+<script src="view/js/propios/goLogin.js"></script>
 <script src="view/js/jquery.min.js"></script>
 <script src="view/js/scriptlogin.js"></script>
 <script src="view/js/jquery.scrolly.min.js"></script>
