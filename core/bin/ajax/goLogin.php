@@ -19,7 +19,8 @@ if (!empty($_POST['user']) and !empty($_POST['pass'])){
 
     if ($db->rows($sql) > 0){
 
-        if ($_POST['sesion']){ ini_set('session.cookie_lifetime',time() + (60*60*24));}
+        if ($_POST['sesion']){
+            ini_set('session.cookie_lifetime',time() + (60*60*24));}
         $_SESSION['app_id'] = $db->recorrer($sql)[0];
         echo 1;
     } else {

@@ -27,7 +27,11 @@
         <a href="index.php" class="logo"><strong>UNAP</strong> </a>
         <nav>
             <?php
-            if (!isset($_SESSION['app_id'])){
+            if (isset($_SESSION['app_id'])){
+                echo '<label>'. strtoupper($users[$_SESSION['app_id']]['usuario']) .'</label>
+                        <a href="#menu">Menu</a>';
+            } else {
+
                 echo '<div><!--Formulario despegable login-->
             <button id="open-close" class="button-login">Iniciar Sesión</button>
             <form id=\'login_inv\' class="formulario">
@@ -43,8 +47,6 @@
             </form>
             </div>
             <a href="#menu">Menu</a>';
-            } else {
-                echo '<a href="#menu">Menu</a>';
             }
 
             ?>
