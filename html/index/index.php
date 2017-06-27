@@ -1,58 +1,13 @@
-<!DOCTYPE HTML>
-<html lang="es">
-<head>
-    <title>Investiga UNAP</title>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <!--[if lte IE 8]>
-    <script src="view/js/ie/html5shiv.js"></script><![endif]-->
-    <link rel="stylesheet" href="view/css/main.css" />
-    <link rel="stylesheet" href="view/css/estilos_personales.css" />
-    <link rel="icon" href="icono.ico" >
-    <!--[if lte IE 9]>
-    <link rel="stylesheet" href="view/css/ie9.css"/><![endif]-->
-    <!--[if lte IE 8]>
-    <link rel="stylesheet" href="view/css/ie8.css"/><![endif]-->
-</head>
-<body>
+
+<?php include(VIEW_DIR . 'overall/header.php'); ?>
 
 <!-- Wrapper -->
 <div id="wrapper">
 
     <!-- Header -->
     <!-- Note: The "styleN" class below should match that of the banner element. -->
-    <header id="header" class="alt style2">
-        <img class="imagenunap" src="view/images/logo-min.png">
-        <a href="index.php" class="logo"><strong>UNAP</strong> </a>
-        <nav>
-            <?php
-            if (isset($_SESSION['app_id'])){
-                echo '<label>'. strtoupper($users[$_SESSION['app_id']]['usuario']) .'</label>
-                        <a href="#menu">Menu</a>';
-            } else {
 
-                echo '<div><!--Formulario despegable login-->
-            <button id="open-close" class="button-login">Iniciar Sesión</button>
-            <form id=\'login_inv\' class="formulario">
-                <div id="_AJAX_LOGIN">
-
-                </div>
-                <label>Usuario</label>
-                <input type="text" id="nombre" placeholder="Escriba su nombre">
-                <label>Contraseña</label>
-                <input type="password" id="contraseña" placeholder="Escriba su contraseña">
-                <div><label><input type="checkbox" class="prueba" value="1" id="recordar" checked>Recordar</label></div>
-                <center><input type=\'submit\'  value="Ingresar" id="enviar" onclick="goLogin()"></center>
-            </form>
-            </div>
-            <a href="#menu">Menu</a>';
-            }
-
-            ?>
-
-        </nav>
-    </header>
+    <?php include(VIEW_DIR . 'overall/sesion.php'); ?>
 
     <!-- Menu -->
     <nav id="menu">

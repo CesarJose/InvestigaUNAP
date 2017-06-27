@@ -1,6 +1,8 @@
 /**
  * Created by CesarJose39 on 24/06/2017.
  */
+
+
 function goLogin() {
     var connect, form, response, result, user, pass, sesion;
     user = __('nombre').value;
@@ -14,7 +16,7 @@ function goLogin() {
             if (connect.responseText == 1){
                 result = '<label style="color: white;">¡Conectado!</label>';
                 __('_AJAX_LOGIN').innerHTML = result;
-                //location.reload();
+                location.reload();
             }else {
                 __('_AJAX_LOGIN').innerHTML = connect.responseText;
             }
