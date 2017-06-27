@@ -4,7 +4,16 @@
     <nav>
         <?php
         if (isset($_SESSION['app_id'])){
-            echo '<label>'. strtoupper($users[$_SESSION['app_id']]['usuario']) .'</label>
+
+            echo '<div><!--Formulario despegable login-->
+            <button id="open-close2" class="button-login">'. strtoupper($users[$_SESSION['app_id']]['usuario']) .'</button>
+            <div id="opciones-user" class="formulario" onkeypress="return runScriptLogin(event)">
+                <div id="_AJAX_LOGIN"></div>
+                <div><button class="button-login">Ver Perfil</button></div>
+                <div><button class="button-login">Administrar Cuenta</button></div>
+                <div><button class="button-login" onclick="cerrarSesion()">Cerrar Sesión</button></div>
+            </div>
+            </div>
                         <a href="#menu">Menu</a>';
         } else {
 

@@ -22,11 +22,37 @@ function goLogin() {
             }
 
         }else if(connect.readyState != 4){
-            result = '<label style="color: white;">¡Conectando!</label>';;
+            result = '<label style="color: white;">¡Conectando!</label>';
             __('_AJAX_LOGIN').innerHTML = result;
         }
     }
     connect.open('POST','ajax.php?mode=login');
+    connect.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+    connect.send(form);
+
+}
+
+function cerrarSesion() {
+    var connect, form, response, result;
+    form = 'sesion=close';
+
+    connect = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+    connect.onreadystatechange = function () {
+        if (connect.readyState == 4 && connect.status == 200){
+            if (connect.responseText == 1){
+                result = '<label style="color: yellow;">¡Sesión cerrada!</label>';
+                __('_AJAX_LOGIN').innerHTML = result;
+                location.reload();
+            }else {
+                __('_AJAX_LOGIN').innerHTML = connect.responseText;
+            }
+
+        }else if(connect.readyState != 4){
+            result = '<label style="color: white;">¡Espere un momento por favor!</label>';
+            __('_AJAX_LOGIN').innerHTML = result;
+        }
+    }
+    connect.open('POST','ajax.php?mode=closesesion');
     connect.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
     connect.send(form);
 

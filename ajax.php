@@ -9,12 +9,18 @@
 
 if($_POST){
     require ('core/core.php');
+    $dato = $_GET['mode'];
 
+    switch ($dato){
+        case 'closesesion':
+            require ('core/bin/ajax/CloseSesion.php');
+            break;
 
-    switch (isset($_GET['mode']) ){
         case 'login':
             require ('core/bin/ajax/goLogin.php');
             break;
+
+
 
         default:
             header('location: index.php');
